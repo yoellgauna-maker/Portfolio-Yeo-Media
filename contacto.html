@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto – YEOMedia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tilt+Warp&family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-contacto">
+
+  <!-- ── NAV ── -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="19" r="3" fill="#085420"/>
+          <path d="M8 4 Q6 8 8 11 Q10 14 12 14 Q14 14 16 11 Q18 8 16 4"
+                stroke="#085420" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M9 12 Q9 16 12 16 Q15 16 15 12"
+                stroke="#085420" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html"    class="outline">Sobre mi</a>
+      <a href="trabajos.html" class="filled-mid">Trabajos</a>
+      <a href="contacto.html" class="filled-dark">Contacto</a>
+    </div>
+  </nav>
+
+  <!-- ── MAIN ── -->
+  <main>
+
+    <!-- Título -->
+    <div class="contact-hero anim-1">
+      <h1 class="contact-title">CONTACTAME</h1>
+    </div>
+
+    <!-- Cuerpo: info + formulario -->
+    <div class="contact-body anim-2">
+
+      <!-- Izquierda: datos -->
+      <div class="contact-info">
+        <div class="contact-info-item">
+          <span class="contact-info-label">Email</span>
+          <span class="contact-info-value">yeomultimedia@gmail.com</span>
+        </div>
+        <div class="contact-info-item">
+          <span class="contact-info-label">Teléfono</span>
+          <span class="contact-info-value">11223-34455</span>
+        </div>
+      </div>
+
+      <!-- Derecha: formulario -->
+      <div class="contact-card">
+        <input
+          type="text"
+          id="nombre"
+          class="form-input"
+          placeholder="Nombre y apellido"
+        />
+
+        <input
+          type="email"
+          id="email"
+          class="form-input"
+          placeholder="Email"
+        />
+
+        <label class="form-label" for="mensaje">Dejame tu mensaje</label>
+        <textarea
+          id="mensaje"
+          class="form-textarea"
+          placeholder="Enter a description..."
+        ></textarea>
+        <span class="form-footer-label">Mensaje de consulta</span>
+
+        <div class="success-msg" id="successMsg">
+          ¡Mensaje enviado! Te responderé pronto.
+        </div>
+
+        <button class="form-submit" onclick="handleSubmit()">
+          Enviar mensaje
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-brand">Yeo<br>Media</div>
+
+    <div>
+      <div class="footer-col-title">LINKS</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="trabajos.html">Archive</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">CONNECT</div>
+      <ul class="footer-links">
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Linkedin</a></li>
+        <li><a href="#" class="no-underline">Behance</a></li>
+        <li><a href="#">Email</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-bottom">
+      <p>©2026 Grain Archive<br>Words, images, and signals from the edge</p>
+    </div>
+  </footer>
+
+  <script>
+    function handleSubmit() {
+      const nombre  = document.getElementById('nombre').value.trim();
+      const email   = document.getElementById('email').value.trim();
+      const mensaje = document.getElementById('mensaje').value.trim();
+      const msgEl   = document.getElementById('successMsg');
+
+      if (!nombre || !email || !mensaje) {
+        alert('Por favor completá todos los campos.');
+        return;
+      }
+
+      msgEl.style.display = 'block';
+      document.getElementById('nombre').value  = '';
+      document.getElementById('email').value   = '';
+      document.getElementById('mensaje').value = '';
+
+      setTimeout(() => { msgEl.style.display = 'none'; }, 5000);
+    }
+  </script>
+
+</body>
+</html>
