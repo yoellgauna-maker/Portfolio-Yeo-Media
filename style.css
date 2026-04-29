@@ -440,6 +440,7 @@ body.page-trabajos {
   margin-bottom: 24px;
 }
 
+
 .work-card {
   border-radius: 14px;
   overflow: hidden;
@@ -450,6 +451,12 @@ body.page-trabajos {
 }
 
 .work-card:hover { transform: scale(1.02); }
+
+a.work-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
 
 .work-card img {
   width: 100%;
