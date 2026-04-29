@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Rediseño Escudo Chicana FC – YEOMedia" />
+  <title>Chicana FC – YEOMedia</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Estilos específicos de la página de proyecto ── */
+
+    body.page-proyecto {
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    /* ── HEADER de proyecto: logo + volver ── */
+    .proyecto-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: clamp(10px, 2vw, 18px) var(--px);
+      background: rgba(17,17,17,0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .proyecto-header .logo-icon {
+      width: clamp(28px,4vw,38px);
+      height: clamp(28px,4vw,38px);
+      background: var(--green-lime);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      text-decoration: none;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .proyecto-header .logo-icon:hover { transform: scale(1.08); opacity: 0.85; }
+    .proyecto-header .logo-icon svg   { width: 56%; height: 56%; }
+
+    .btn-volver {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      font-size: clamp(12px, 1.4vw, 14px);
+      font-weight: 600;
+      color: var(--white);
+      padding: clamp(7px,1vw,10px) clamp(14px,2vw,22px);
+      border-radius: 999px;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .btn-volver:hover {
+      border-color: var(--green-mid);
+      color: var(--green-mid);
+      background: rgba(0,175,118,0.08);
+    }
+    .btn-volver svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    /* ── MAIN ── */
+    .proyecto-main {
+      flex: 1;
+      padding-top: clamp(64px, 10vw, 90px);
+    }
+
+    /* ── INTRO del proyecto ── */
+    .proyecto-intro {
+      padding: clamp(40px,6vw,72px) var(--px) clamp(24px,4vw,48px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(24px,4vw,56px);
+      align-items: end;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .proyecto-tag {
+      font-size: clamp(10px,1.1vw,12px);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green-mid);
+      margin-bottom: clamp(10px,1.5vw,16px);
+    }
+
+    .proyecto-titulo {
+      font-size: clamp(40px,7vw,88px);
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+    }
+
+    .proyecto-meta {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(16px,2vw,24px);
+      padding-bottom: 4px;
+    }
+
+    .meta-item { display: flex; flex-direction: column; gap: 4px; }
+
+    .meta-label {
+      font-size: clamp(9px,1vw,11px);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--grey);
+    }
+
+    .meta-value {
+      font-size: clamp(13px,1.5vw,16px);
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    /* ── DESCRIPCIÓN ── */
+    .proyecto-desc {
+      padding: clamp(32px,5vw,56px) var(--px);
+      max-width: 720px;
+    }
+
+    .proyecto-desc p {
+      font-size: clamp(14px,1.6vw,17px);
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
+    }
+
+    /* ── IMAGEN PRINCIPAL del proyecto ── */
+    .proyecto-imagen-wrap {
+      padding: 0 var(--px) clamp(40px,6vw,72px);
+    }
+
+    .proyecto-imagen-wrap img {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: var(--r-lg);
+      display: block;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+    }
+
+    /* ── NAVEGACIÓN entre proyectos ── */
+    .proyecto-nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .proyecto-nav-item {
+      padding: clamp(24px,4vw,48px) var(--px);
+      text-decoration: none;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: background 0.25s;
+    }
+    .proyecto-nav-item:hover { background: rgba(255,255,255,0.04); }
+    .proyecto-nav-item:first-child { border-right: 1px solid rgba(255,255,255,0.08); }
+
+    .nav-direction {
+      font-size: clamp(9px,1vw,11px);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--grey);
+    }
+
+    .nav-titulo {
+      font-size: clamp(16px,2.5vw,24px);
+      font-weight: 800;
+    }
+
+    .nav-flecha { font-size: clamp(18px,2.5vw,24px); }
+
+    .proyecto-nav-item.siguiente { text-align: right; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .proyecto-intro {
+        grid-template-columns: 1fr;
+        gap: clamp(24px,4vw,36px);
+        align-items: start;
+      }
+      .proyecto-nav { grid-template-columns: 1fr; }
+      .proyecto-nav-item:first-child { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .proyecto-nav-item.siguiente { text-align: left; }
+    }
+  </style>
+</head>
+<body class="page-proyecto">
+
+  <!-- ════════════════════════════════════
+       HEADER: logo + botón volver
+       ════════════════════════════════════ -->
+  <header class="proyecto-header">
+
+    <!-- Logo clickeable → vuelve a trabajos -->
+    <a href="trabajos.html" class="logo-icon" aria-label="Volver a trabajos">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="19.5" r="2.8" fill="#085420"/>
+        <path d="M8.5 3.5 Q6.5 8 8.5 11.5 Q10.2 14.2 12 14.2 Q13.8 14.2 15.5 11.5 Q17.5 8 15.5 3.5"
+              stroke="#085420" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <path d="M9.5 12.5 Q9.5 16.5 12 16.5 Q14.5 16.5 14.5 12.5"
+              stroke="#085420" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+      </svg>
+    </a>
+
+    <!-- Botón volver -->
+    <a href="trabajos.html" class="btn-volver" aria-label="Volver a todos los trabajos">
+      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Trabajos
+    </a>
+
+  </header>
+
+  <!-- ════════════════════════════════════
+       MAIN
+       ════════════════════════════════════ -->
+  <main class="proyecto-main">
+
+    <!-- Intro: título + metadata -->
+    <div class="proyecto-intro anim-1">
+      <div>
+        <p class="proyecto-tag">Diseño de identidad · Futsal</p>
+        <h1 class="proyecto-titulo">Chicana<br>FC</h1>
+      </div>
+
+      <div class="proyecto-meta">
+        <div class="meta-item">
+          <span class="meta-label">Tipo</span>
+          <span class="meta-value">Rediseño de escudo</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Cliente</span>
+          <span class="meta-value">Chicana FC</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Categoría</span>
+          <span class="meta-value">Identidad visual deportiva</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Año</span>
+          <span class="meta-value">2025</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Descripción -->
+    <div class="proyecto-desc anim-2">
+      <p>
+        Rediseño completo del escudo de Chicana FC, club de futsal. El objetivo fue
+        modernizar la identidad visual del club manteniendo los elementos que
+        representan su historia, pero con una estética más contemporánea, dinámica
+        y apta para redes sociales y merchandising.
+      </p>
+    </div>
+
+    <!-- Imagen principal del proyecto -->
+    <div class="proyecto-imagen-wrap anim-3">
+      <!--
+        La imagen Chicana.png va en la carpeta img/
+        Copiala como: img/chicana.png
+      -->
+      <img
+        src="img/caratulas/Chicana (1).png"
+        alt="Rediseño escudo Chicana FC – comparación actual vs propuesta"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Navegación entre proyectos -->
+    <nav class="proyecto-nav" aria-label="Navegación entre proyectos">
+      <a href="trabajos.html" class="proyecto-nav-item anterior">
+        <span class="nav-direction">← Volver</span>
+        <span class="nav-titulo">Todos los trabajos</span>
+      </a>
+      <a href="proyecto-cave.html" class="proyecto-nav-item siguiente">
+        <span class="nav-direction">Siguiente →</span>
+        <span class="nav-titulo">The Cave</span>
+      </a>
+    </nav>
+
+  </main>
+
+  <!-- ════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════ -->
+  <footer>
+    <div class="footer-brand">Yeo<br>Media</div>
+
+    <nav aria-label="Links del footer">
+      <div class="footer-col-title">LINKS</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="trabajos.html">Archive</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-label="Redes sociales">
+      <div class="footer-col-title">CONNECT</div>
+      <ul class="footer-links">
+        <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="#" target="_blank" rel="noopener">Linkedin</a></li>
+        <li><a href="#" target="_blank" rel="noopener" class="no-underline">Behance</a></li>
+        <li><a href="contacto.html">Email</a></li>
+      </ul>
+    </nav>
+
+    <div class="footer-bottom">
+      <p>©2026 Grain Archive<br>Words, images, and signals from the edge</p>
+    </div>
+  </footer>
+
+</body>
+</html>

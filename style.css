@@ -221,25 +221,21 @@ body.page-home {
 .hero-portrait {
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  height: 72%;
-  background: radial-gradient(ellipse 60% 80% at 50% 10%, #252525 0%, #111 55%, #000 100%);
-  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  left: 0;
+  width: 100%;       /* ocupa todo el ancho */
+  height: 100%;      /* ocupa toda la altura del hero */
+  mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
 }
 
-/* Cuando se usa una imagen real de retrato */
+/* Imagen real de retrato — cubre todo el hero */
 .hero-portrait img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top center;
+  object-fit: cover;          /* cubre sin deformar */
+  object-position: center 20%; /* ajusta el encuadre vertical: subí/bajá el % */
   display: block;
-  filter: contrast(1.2) brightness(0.6);
-  mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+  filter: contrast(1.1) brightness(0.65);
 }
 
 .hero-gradient {
